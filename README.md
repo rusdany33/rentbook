@@ -131,7 +131,7 @@ use App\Controllers\UserController;
 
 1. **Clone/Download project**
 ```bash
-cd C:/Users/Administrator/Workspace/uts-web-ebook
+git clone : https://github.com/rusdany33/rentbook.git
 ```
 
 2. **Jalankan PHP Built-in Server**
@@ -194,28 +194,6 @@ Data disimpan dalam format JSON:
 - `ebooks.json`: Katalog buku
 - `transactions.json`: Riwayat peminjaman
 
-## 🎓 Pemenuhan Rubrik Penilaian
-
-### Front-End (30 poin) ✅
-- ✅ Form validation (client-side real-time)
-- ✅ Semantic HTML5 (nav, section, article)
-- ✅ Responsive layout (mobile & desktop)
-- ✅ Interactive JS (modal, tab, search, AJAX)
-
-### PHP OOP (40 poin) ✅
-- ✅ Class & Object
-- ✅ Encapsulation (private/protected + getter/setter)
-- ✅ Inheritance (User → Admin/Member)
-- ✅ Polymorphism (abstract method implementation)
-- ✅ Namespace (App\Models, App\Controllers)
-
-### Kerapian & Struktur (30 poin) ✅
-- ✅ Folder structure terorganisir (src/, public/)
-- ✅ Modular code (Models, Controllers terpisah)
-- ✅ Naming convention konsisten
-- ✅ No errors, sistem berjalan sempurna
-
-**Total: 100/100**
 
 ## 🔒 Keamanan
 

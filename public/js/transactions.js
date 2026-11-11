@@ -10,18 +10,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Check authentication
 function checkAuth() {
-    fetch('index.php?action=check_auth')
+    fetch('api.php?action=check_auth')
         .then(res => res.json())
         .then(data => {
             if (!data.authenticated) {
                 window.location.href = 'login.html';
             }
+        })
+        .catch(() => {
+            window.location.href = 'login.html';
         });
 }
 
 // Load user info
 async function loadUserInfo() {
-    const response = await fetch('index.php?action=get_user');
+    const response = await fetch('api.php?action=get_user');
     const data = await response.json();
     
     if (data.success) {
@@ -41,7 +44,7 @@ async function loadUserInfo() {
 
 // Load transactions
 async function loadTransactions() {
-    const response = await fetch('index.php?action=get_transactions');
+    const response = await fetch('api.php?action=get_transactions');
     const data = await response.json();
     
     if (data.success) {
@@ -160,7 +163,7 @@ async function returnBook(transactionId) {
     formData.append('action', 'return_book');
     formData.append('transaction_id', transactionId);
     
-    const response = await fetch('index.php', {
+    const response = await fetch('api.php', {
         method: 'POST',
         body: formData
     });

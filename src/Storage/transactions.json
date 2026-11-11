@@ -1,1 +1,14 @@
-[]
+[
+    {
+        "id": "trans_6af4286d7f7b70.99518436",
+        "userId": "user_6af4286228cd39.06371086",
+        "bookId": "book_6af424249914e4.21951990",
+        "type": "borrow",
+        "borrowDate": "2026-11-11 09:33:49",
+        "dueDate": "2026-11-25 09:33:49",
+        "returnDate": "2026-11-11 09:34:00",
+        "status": "returned",
+        "amount": 15000,
+        "fine": 0
+    }
+]

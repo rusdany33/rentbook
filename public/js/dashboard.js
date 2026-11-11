@@ -25,18 +25,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Check authentication
 function checkAuth() {
-    fetch('index.php?action=check_auth')
+    fetch('api.php?action=check_auth')
         .then(res => res.json())
         .then(data => {
             if (!data.authenticated) {
                 window.location.href = 'login.html';
             }
+        })
+        .catch(() => {
+            window.location.href = 'login.html';
         });
 }
 
 // Load user info
 async function loadUserInfo() {
-    const response = await fetch('index.php?action=get_user');
+    const response = await fetch('api.php?action=get_user');
     const data = await response.json();
     
     if (data.success) {
@@ -56,7 +59,7 @@ async function loadUserInfo() {
 
 // Load categories
 async function loadCategories() {
-    const response = await fetch('index.php?action=get_categories');
+    const response = await fetch('api.php?action=get_categories');
     const data = await response.json();
     
     if (data.success) {
@@ -72,7 +75,7 @@ async function loadCategories() {
 
 // Load books
 async function loadBooks() {
-    const response = await fetch('index.php?action=get_books');
+    const response = await fetch('api.php?action=get_books');
     const data = await response.json();
     
     if (data.success) {
@@ -91,7 +94,7 @@ async function searchBooks() {
     if (keyword) params.append('keyword', keyword);
     if (category) params.append('category', category);
     
-    const response = await fetch('index.php?' + params.toString());
+    const response = await fetch('api.php?' + params.toString());
     const data = await response.json();
     
     if (data.success) {
@@ -183,7 +186,7 @@ async function borrowBook(bookId) {
     formData.append('action', 'borrow_book');
     formData.append('book_id', bookId);
     
-    const response = await fetch('index.php', {
+    const response = await fetch('api.php', {
         method: 'POST',
         body: formData
     });
@@ -234,7 +237,7 @@ async function deleteBook(bookId) {
     formData.append('action', 'delete_book');
     formData.append('book_id', bookId);
     
-    const response = await fetch('index.php', {
+    const response = await fetch('api.php', {
         method: 'POST',
         body: formData
     });
@@ -268,7 +271,7 @@ async function handleBookFormSubmit(e) {
         formData.append('action', 'add_book');
     }
     
-    const response = await fetch('index.php', {
+    const response = await fetch('api.php', {
         method: 'POST',
         body: formData
     });

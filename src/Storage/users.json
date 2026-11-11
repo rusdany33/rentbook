@@ -17,5 +17,15 @@
         "createdAt": "2026-11-11 09:15:46",
         "borrowedBooks": [],
         "borrowLimit": 3
+    },
+    {
+        "id": "user_6af4286228cd39.06371086",
+        "email": "rusdany33@gmail.com",
+        "password": "$2y$10$RFGHsM3eM4hZ7Nxzolh6COJ8cgF8jglBdnrqGJaeE42MRq9jNUtQC",
+        "name": "Rusdany Maesto",
+        "role": "member",
+        "createdAt": "2026-11-11 09:33:38",
+        "borrowedBooks": [],
+        "borrowLimit": 3
     }
 ]

@@ -51,7 +51,7 @@ async function handleLogin(e) {
     formData.append('password', password);
     
     try {
-        const response = await fetch('index.php', {
+        const response = await fetch('api.php', {
             method: 'POST',
             body: formData
         });
@@ -114,7 +114,7 @@ async function handleRegister(e) {
     formData.append('password', password);
     
     try {
-        const response = await fetch('index.php', {
+        const response = await fetch('api.php', {
             method: 'POST',
             body: formData
         });
@@ -175,8 +175,17 @@ function validateConfirmPassword() {
 // Logout handler
 function handleLogout() {
     if (confirm('Yakin ingin logout?')) {
-        fetch('index.php?action=logout')
+        fetch('api.php?action=logout')
+            .then(res => res.json())
             .then(() => {
+                // Clear any local storage
+                sessionStorage.clear();
+                localStorage.clear();
+                // Redirect to login
+                window.location.href = 'login.html';
+            })
+            .catch(() => {
+                // Force redirect even on error
                 window.location.href = 'login.html';
             });
     }
