@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Book Library - Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">📚 E-Book Library</div>
+            <div class="nav-menu">
+                <a href="dashboard.html" class="nav-link active">Katalog</a>
+                <a href="transactions.html" class="nav-link">Transaksi Saya</a>
+                <div class="nav-user">
+                    <span id="user-name"></span>
+                    <span class="badge" id="user-role"></span>
+                    <button onclick="handleLogout()" class="btn btn-sm">Logout</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="page-header">
+            <h1>Katalog E-Book</h1>
+            <div class="header-actions">
+                <button id="admin-add-btn" class="btn btn-primary" style="display: none;" onclick="showAddBookModal()">+ Tambah Buku</button>
+            </div>
+        </div>
+        
+        <div class="filter-section">
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Cari judul, penulis, atau ISBN..." class="search-input">
+                <button onclick="searchBooks()" class="btn">Cari</button>
+            </div>
+            <div class="filter-group">
+                <label>Kategori:</label>
+                <select id="category-filter" onchange="searchBooks()">
+                    <option value="">Semua Kategori</option>
+                </select>
+            </div>
+        </div>
+        
+        <div id="book-grid" class="book-grid"></div>
+    </div>
+    
+    <!-- Modal: Borrow Book -->
+    <div id="borrow-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeBorrowModal()">&times;</span>
+            <h2>Detail Buku</h2>
+            <div id="modal-book-details"></div>
+            <div class="modal-actions">
+                <button onclick="closeBorrowModal()" class="btn btn-secondary">Batal</button>
+                <button id="borrow-confirm-btn" class="btn btn-primary">Pinjam Buku</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal: Add/Edit Book (Admin) -->
+    <div id="book-form-modal" class="modal">
+        <div class="modal-content modal-large">
+            <span class="modal-close" onclick="closeBookFormModal()">&times;</span>
+            <h2 id="book-form-title">Tambah Buku</h2>
+            <form id="book-form">
+                <input type="hidden" id="book-id" name="book_id">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="book-title">Judul *</label>
+                        <input type="text" id="book-title" name="title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="book-author">Penulis *</label>
+                        <input type="text" id="book-author" name="author" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="book-isbn">ISBN *</label>
+                        <input type="text" id="book-isbn" name="isbn" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="book-category">Kategori *</label>
+                        <input type="text" id="book-category" name="category" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="book-copies">Jumlah Salinan *</label>
+                        <input type="number" id="book-copies" name="totalCopies" required min="1">
+                    </div>
+                    <div class="form-group">
+                        <label for="book-price">Harga Sewa (Rp) *</label>
+                        <input type="number" id="book-price" name="rentalPrice" required min="0">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="book-cover">URL Cover</label>
+                    <input type="url" id="book-cover" name="coverUrl" placeholder="https://...">
+                </div>
+                <div class="form-group">
+                    <label for="book-description">Deskripsi *</label>
+                    <textarea id="book-description" name="description" required rows="4"></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" onclick="closeBookFormModal()" class="btn btn-secondary">Batal</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script src="js/validation.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

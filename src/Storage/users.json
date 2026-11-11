@@ -1,0 +1,21 @@
+[
+    {
+        "id": "user_6af424249a66e1.96770523",
+        "email": "admin@ebook.com",
+        "password": "$2y$10$Eker93cJNeCmZBPpJ6Q31uQAUkYwU2ld81r\/ZPJLe8wtu5eRQaBCy",
+        "name": "Administrator",
+        "role": "admin",
+        "createdAt": "2026-11-11 09:15:32",
+        "managedCategories": []
+    },
+    {
+        "id": "user_6af424323b5747.93092910",
+        "email": "test@test.com",
+        "password": "$2y$10$vTTPOmKTCH35wp1MVDsfleWlOvEFw8ojUpWHvQAaRRyiO4EBMr\/v.",
+        "name": "Test User",
+        "role": "member",
+        "createdAt": "2026-11-11 09:15:46",
+        "borrowedBooks": [],
+        "borrowLimit": 3
+    }
+]

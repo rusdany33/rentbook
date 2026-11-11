@@ -1,0 +1,67 @@
+[
+    {
+        "id": "book_6af424249914e4.21951990",
+        "title": "Clean Code",
+        "author": "Robert C. Martin",
+        "isbn": "978-0132350884",
+        "category": "Programming",
+        "description": "A handbook of agile software craftsmanship",
+        "coverUrl": "https:\/\/via.placeholder.com\/200x300\/4A90E2\/fff?text=Clean+Code",
+        "totalCopies": 5,
+        "availableCopies": 5,
+        "rentalPrice": 15000,
+        "createdAt": "2026-11-11 09:15:32"
+    },
+    {
+        "id": "book_6af42424992fb1.85191962",
+        "title": "Design Patterns",
+        "author": "Gang of Four",
+        "isbn": "978-0201633610",
+        "category": "Programming",
+        "description": "Elements of reusable object-oriented software",
+        "coverUrl": "https:\/\/via.placeholder.com\/200x300\/7B68EE\/fff?text=Design+Patterns",
+        "totalCopies": 3,
+        "availableCopies": 3,
+        "rentalPrice": 20000,
+        "createdAt": "2026-11-11 09:15:32"
+    },
+    {
+        "id": "book_6af42424992fe8.82846276",
+        "title": "The Pragmatic Programmer",
+        "author": "Andrew Hunt",
+        "isbn": "978-0135957059",
+        "category": "Programming",
+        "description": "Your journey to mastery",
+        "coverUrl": "https:\/\/via.placeholder.com\/200x300\/FF6B6B\/fff?text=Pragmatic",
+        "totalCopies": 4,
+        "availableCopies": 4,
+        "rentalPrice": 18000,
+        "createdAt": "2026-11-11 09:15:32"
+    },
+    {
+        "id": "book_6af42424993003.50516847",
+        "title": "Introduction to Algorithms",
+        "author": "Thomas H. Cormen",
+        "isbn": "978-0262033848",
+        "category": "Computer Science",
+        "description": "Comprehensive introduction to algorithms",
+        "coverUrl": "https:\/\/via.placeholder.com\/200x300\/4ECDC4\/fff?text=Algorithms",
+        "totalCopies": 2,
+        "availableCopies": 2,
+        "rentalPrice": 25000,
+        "createdAt": "2026-11-11 09:15:32"
+    },
+    {
+        "id": "book_6af42424993024.40419930",
+        "title": "You Don't Know JS",
+        "author": "Kyle Simpson",
+        "isbn": "978-1491904244",
+        "category": "Web Development",
+        "description": "Deep dive into JavaScript mechanics",
+        "coverUrl": "https:\/\/via.placeholder.com\/200x300\/FFD93D\/333?text=YDKJS",
+        "totalCopies": 6,
+        "availableCopies": 6,
+        "rentalPrice": 12000,
+        "createdAt": "2026-11-11 09:15:32"
+    }
+]

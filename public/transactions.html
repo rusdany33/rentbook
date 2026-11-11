@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Book Library - Transaksi</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">📚 E-Book Library</div>
+            <div class="nav-menu">
+                <a href="dashboard.html" class="nav-link">Katalog</a>
+                <a href="transactions.html" class="nav-link active">Transaksi Saya</a>
+                <div class="nav-user">
+                    <span id="user-name"></span>
+                    <span class="badge" id="user-role"></span>
+                    <button onclick="handleLogout()" class="btn btn-sm">Logout</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="page-header">
+            <h1>Riwayat Transaksi</h1>
+        </div>
+        
+        <div class="tabs">
+            <button class="tab-btn active" onclick="showTab('active')">Sedang Dipinjam</button>
+            <button class="tab-btn" onclick="showTab('history')">Riwayat</button>
+            <button class="tab-btn" id="all-tab" onclick="showTab('all')" style="display: none;">Semua Transaksi</button>
+        </div>
+        
+        <div id="active-tab" class="tab-content active">
+            <div id="active-transactions" class="transactions-list"></div>
+        </div>
+        
+        <div id="history-tab" class="tab-content">
+            <div id="history-transactions" class="transactions-list"></div>
+        </div>
+        
+        <div id="all-tab-content" class="tab-content">
+            <div id="all-transactions" class="transactions-list"></div>
+        </div>
+    </div>
+    
+    <script src="js/validation.js"></script>
+    <script src="js/transactions.js"></script>
+</body>
+</html>
