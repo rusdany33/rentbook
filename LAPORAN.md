@@ -1,7 +1,9 @@
 # LAPORAN IMPLEMENTASI
+
 ## UTS Pemrograman Web - Sistem E-Book Library
 
 ### Informasi
+
 - **Mata Kuliah**: Pemrograman Web
 - **Semester**: Ganjil 2026/2027
 - **Sistem**: Perpustakaan E-Book
@@ -12,9 +14,11 @@
 ## 1. IMPLEMENTASI PHP OOP
 
 ### A. Encapsulation ✅
+
 **Lokasi**: `src/Models/User.php`, `EBook.php`, `Transaction.php`
 
 **Implementasi**:
+
 ```php
 class User {
     protected string $id;           // Protected property
@@ -35,6 +39,7 @@ class User {
 ```
 
 **Penjelasan**:
+
 - Properties dibuat `private`/`protected`
 - Akses hanya melalui getter/setter methods
 - Password di-hash, tidak bisa diakses langsung
@@ -42,9 +47,11 @@ class User {
 ---
 
 ### B. Inheritance ✅
+
 **Lokasi**: `src/Models/Admin.php`, `Member.php`
 
 **Implementasi**:
+
 ```php
 // Base class
 abstract class User {
@@ -76,6 +83,7 @@ class Member extends User {
 ```
 
 **Penjelasan**:
+
 - `Admin` dan `Member` inherit dari `User`
 - Child class mendapat properties & methods dari parent
 - Child class bisa punya methods sendiri
@@ -83,9 +91,11 @@ class Member extends User {
 ---
 
 ### C. Polymorphism ✅
+
 **Lokasi**: `src/Models/User.php` (abstract method)
 
 **Implementasi**:
+
 ```php
 abstract class User {
     // Abstract method - wajib di-implement child class
@@ -117,6 +127,7 @@ class Member extends User {
 ```
 
 **Penjelasan**:
+
 - Method `getPermissions()` dipanggil di kedua class
 - Behavior berbeda tergantung object type
 - Admin punya lebih banyak permissions
@@ -124,9 +135,11 @@ class Member extends User {
 ---
 
 ### D. Namespace ✅
+
 **Lokasi**: Semua file di `src/`
 
 **Implementasi**:
+
 ```php
 // Models
 namespace App\Models;
@@ -148,6 +161,7 @@ class UserController {
 ```
 
 **Penjelasan**:
+
 - Namespace `App\Models` untuk models
 - Namespace `App\Controllers` untuk controllers
 - `use` statement untuk import classes
@@ -157,6 +171,7 @@ class UserController {
 ## 2. FRONT-END IMPLEMENTATION
 
 ### A. HTML Semantik ✅
+
 ```html
 <nav class="navbar">...</nav>
 <section class="container">
@@ -168,6 +183,7 @@ class UserController {
 ```
 
 ### B. CSS Responsive ✅
+
 ```css
 /* Mobile-first */
 .book-grid {
@@ -183,6 +199,7 @@ class UserController {
 ```
 
 ### C. JavaScript Validation ✅
+
 ```javascript
 // Real-time validation
 const Validation = {
@@ -214,6 +231,7 @@ async function handleLogin(e) {
 ## 3. STRUKTUR FILE & KERAPIAN
 
 ### Organisasi Folder ✅
+
 ```
 src/
 ├── Models/          # OOP Classes
@@ -228,6 +246,7 @@ public/
 ```
 
 ### Naming Convention ✅
+
 - Classes: `PascalCase` (UserController, EBook)
 - Methods: `camelCase` (getPermissions, borrowBook)
 - Files: `PascalCase.php` (User.php, Transaction.php)
@@ -238,18 +257,21 @@ public/
 ## 4. FITUR SISTEM
 
 ### User Management
+
 - ✅ Register dengan validation
 - ✅ Login dengan session
 - ✅ Password hashing (bcrypt)
 - ✅ Role-based access (Admin/Member)
 
 ### Book Catalog
+
 - ✅ CRUD operations (Admin only)
 - ✅ Search & filter kategori
 - ✅ Real-time availability
 - ✅ Cover images
 
 ### Transaction System
+
 - ✅ Borrow book (max 3 per member)
 - ✅ Return book
 - ✅ Due date tracking (14 hari)
@@ -261,6 +283,7 @@ public/
 ## 5. TESTING RESULTS
 
 ### Backend API ✅
+
 ```bash
 ✅ GET  /index.php?action=check_auth      → {"authenticated":false}
 ✅ GET  /index.php?action=get_books       → 5 books loaded
@@ -270,6 +293,7 @@ public/
 ```
 
 ### Frontend ✅
+
 - ✅ Login page: validation works
 - ✅ Register page: real-time validation
 - ✅ Dashboard: book grid responsive
@@ -277,6 +301,7 @@ public/
 - ✅ Transactions: history display
 
 ### Cross-browser ✅
+
 - ✅ Chrome
 - ✅ Firefox
 - ✅ Edge
@@ -286,7 +311,7 @@ public/
 ## 6. PEMENUHAN RUBRIK
 
 | Komponen | Indikator | Status | Poin |
-|----------|-----------|--------|------|
+| ---------- | ----------- | -------- | ------ |
 | **Front-End** | Form validation | ✅ | 10 |
 | | Semantic HTML | ✅ | 10 |
 | | Responsive layout | ✅ | 5 |
@@ -306,21 +331,23 @@ public/
 ## 7. KREDENSIAL DEFAULT
 
 ### Admin
+
 - Email: `admin@ebook.com`
 - Password: `admin123`
 
 ### Member (auto-created saat register)
+
 - Bebas registrasi sendiri
 
 ---
 
 ## 8. URL AKSES
 
-- **Login**: http://localhost:8080/login.html
-- **Register**: http://localhost:8080/register.html
-- **Dashboard**: http://localhost:8080/dashboard.html (setelah login)
-- **Transaksi**: http://localhost:8080/transactions.html (setelah login)
-- **API**: http://localhost:8080/index.php?action=...
+- **Login**: <http://localhost:8080/login.html>
+- **Register**: <http://localhost:8080/register.html>
+- **Dashboard**: <http://localhost:8080/dashboard.html> (setelah login)
+- **Transaksi**: <http://localhost:8080/transactions.html> (setelah login)
+- **API**: <http://localhost:8080/index.php?action=>...
 
 ---
 

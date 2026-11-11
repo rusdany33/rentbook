@@ -1,4 +1,5 @@
 # LAPORAN AKHIR - SISTEM PERPUSTAKAAN E-BOOK
+
 ## UTS Pemrograman Web Semester Ganjil 2026/2027
 
 **Tanggal**: 11 November 2026  
@@ -9,6 +10,7 @@
 ## 📁 FILE YANG DIBUAT
 
 ### Backend PHP OOP (9 files)
+
 ```
 config.php                              # Autoloader & helper functions
 src/Models/User.php                     # Abstract base class
@@ -22,6 +24,7 @@ src/Controllers/TransactionController.php # Transaction handling
 ```
 
 ### Frontend (10 files)
+
 ```
 public/index.php                        # API Router
 public/login.html                       # Halaman login
@@ -36,6 +39,7 @@ public/js/transactions.js               # Transaction management
 ```
 
 ### Storage (3 files)
+
 ```
 src/Storage/users.json                  # User accounts
 src/Storage/ebooks.json                 # Book catalog
@@ -49,17 +53,20 @@ src/Storage/transactions.json           # Transaction history
 ## 🌐 URL LOKAL
 
 ### Server
-- **Base URL**: http://localhost:8080
+
+- **Base URL**: <http://localhost:8080>
 - **Port**: 8080
 - **Server**: PHP Built-in Server
 
 ### Halaman
-- **Login**: http://localhost:8080/login.html
-- **Register**: http://localhost:8080/register.html
-- **Dashboard**: http://localhost:8080/dashboard.html
-- **Transaksi**: http://localhost:8080/transactions.html
+
+- **Login**: <http://localhost:8080/login.html>
+- **Register**: <http://localhost:8080/register.html>
+- **Dashboard**: <http://localhost:8080/dashboard.html>
+- **Transaksi**: <http://localhost:8080/transactions.html>
 
 ### API Endpoints
+
 ```
 GET  /index.php?action=check_auth
 GET  /index.php?action=get_user
@@ -84,6 +91,7 @@ POST /index.php (action=delete_book)    # Admin only
 ### 1. Backend API Testing ✅
 
 #### Authentication
+
 ```bash
 $ curl http://localhost:8080/index.php?action=check_auth
 {"authenticated":false}
@@ -96,6 +104,7 @@ $ curl -X POST http://localhost:8080/index.php \
 ```
 
 #### Book Catalog
+
 ```bash
 $ curl http://localhost:8080/index.php?action=get_books
 Books loaded: 5
@@ -108,6 +117,7 @@ Books loaded: 5
 ```
 
 #### Categories
+
 ```bash
 $ curl http://localhost:8080/index.php?action=get_categories
 {"success":true,"categories":["Computer Science","Programming","Web Development"]}
@@ -115,6 +125,7 @@ $ curl http://localhost:8080/index.php?action=get_categories
 ```
 
 #### User Registration
+
 ```bash
 $ curl -X POST http://localhost:8080/index.php \
   -d "action=register&name=Test User&email=test@test.com&password=test123"
@@ -123,6 +134,7 @@ $ curl -X POST http://localhost:8080/index.php \
 ```
 
 **Storage Status**:
+
 - Users: 2 (admin + test user)
 - Books: 5 books
 - Transactions: 0 (belum ada transaksi)
@@ -130,6 +142,7 @@ $ curl -X POST http://localhost:8080/index.php \
 ### 2. Frontend Testing ✅
 
 #### Form Validation (Client-side)
+
 - ✅ Email format validation (real-time)
 - ✅ Password minimum 6 karakter
 - ✅ Nama minimum 3 karakter
@@ -137,6 +150,7 @@ $ curl -X POST http://localhost:8080/index.php \
 - ✅ Error message display
 
 #### Responsive Design
+
 - ✅ Desktop (1920x1080)
 - ✅ Tablet (768x1024)
 - ✅ Mobile (375x667)
@@ -144,6 +158,7 @@ $ curl -X POST http://localhost:8080/index.php \
 - ✅ Modal centered
 
 #### JavaScript Interactions
+
 - ✅ AJAX fetch requests
 - ✅ Modal open/close
 - ✅ Tab switching
@@ -153,6 +168,7 @@ $ curl -X POST http://localhost:8080/index.php \
 ### 3. PHP OOP Testing ✅
 
 #### Encapsulation
+
 ```php
 // ✅ Private/protected properties
 protected string $email;
@@ -164,6 +180,7 @@ public function setName(string $name): void { $this->name = $name; }
 ```
 
 #### Inheritance
+
 ```php
 // ✅ Base class
 abstract class User { ... }
@@ -174,6 +191,7 @@ class Member extends User { ... }   // Berhasil inherit
 ```
 
 #### Polymorphism
+
 ```php
 // ✅ Abstract method implementation berbeda
 Admin::getPermissions()   → 7 permissions
@@ -181,6 +199,7 @@ Member::getPermissions()  → 2 permissions
 ```
 
 #### Namespace
+
 ```php
 // ✅ Namespace declaration
 namespace App\Models;
@@ -198,6 +217,7 @@ use App\Controllers\UserController;
 ### Flow 1: User Registration → Login → Borrow Book
 
 1. **Register** (register.html)
+
    ```
    Input: name="Test User", email="test@test.com", password="test123"
    → POST /index.php (action=register)
@@ -207,6 +227,7 @@ use App\Controllers\UserController;
    ```
 
 2. **Login** (login.html)
+
    ```
    Input: email="test@test.com", password="test123"
    → POST /index.php (action=login)
@@ -217,6 +238,7 @@ use App\Controllers\UserController;
    ```
 
 3. **Browse Catalog** (dashboard.html)
+
    ```
    → GET /index.php?action=get_books
    → Display: 5 books in grid
@@ -226,6 +248,7 @@ use App\Controllers\UserController;
    ```
 
 4. **Borrow Book** (dashboard.html)
+
    ```
    → Click "Pinjam Buku" button
    → POST /index.php (action=borrow_book&book_id=...)
@@ -239,6 +262,7 @@ use App\Controllers\UserController;
    ```
 
 5. **View Transactions** (transactions.html)
+
    ```
    → GET /index.php?action=get_transactions
    → Display active transactions
@@ -249,6 +273,7 @@ use App\Controllers\UserController;
 ### Flow 2: Admin Manage Books
 
 1. **Login as Admin**
+
    ```
    Input: email="admin@ebook.com", password="admin123"
    → Role: admin
@@ -257,6 +282,7 @@ use App\Controllers\UserController;
    ```
 
 2. **Add Book** (dashboard.html)
+
    ```
    → Click "Tambah Buku" button
    → Fill form: title, author, isbn, category, copies, price, description
@@ -267,6 +293,7 @@ use App\Controllers\UserController;
    ```
 
 3. **Edit Book**
+
    ```
    → Click "Edit" button on book card
    → Modify: title, price, description
@@ -276,6 +303,7 @@ use App\Controllers\UserController;
    ```
 
 4. **Delete Book**
+
    ```
    → Click "Hapus" button
    → Confirm dialog
@@ -289,6 +317,7 @@ use App\Controllers\UserController;
 ## 📊 STATUS AKHIR
 
 ### Fitur Lengkap ✅
+
 - ✅ User authentication (register, login, logout)
 - ✅ Role-based access (Admin/Member)
 - ✅ Book catalog (CRUD)
@@ -300,20 +329,23 @@ use App\Controllers\UserController;
 - ✅ Form validation (client & server)
 
 ### Pemenuhan Rubrik ✅
+
 | Komponen | Status | Poin |
-|----------|--------|------|
+| ---------- | -------- | ------ |
 | Front-End (HTML/CSS/JS) | ✅ Complete | 30/30 |
 | PHP OOP (Class, Encapsulation, Inheritance, Polymorphism, Namespace) | ✅ Complete | 40/40 |
 | Kerapian & Struktur | ✅ Complete | 30/30 |
 | **TOTAL** | **✅ PERFECT** | **100/100** |
 
 ### Data Tersimpan
+
 - **Users**: 2 accounts (1 admin, 1 test member)
 - **Books**: 5 sample books
 - **Transactions**: 0 (ready for transactions)
 - **Storage**: JSON format, working perfectly
 
 ### Server Status
+
 ```bash
 ✅ Running: PHP Built-in Server
 ✅ Port: 8080
@@ -327,6 +359,7 @@ use App\Controllers\UserController;
 ## 🔑 KREDENSIAL AKSES
 
 ### Admin (Pre-configured)
+
 ```
 Email: admin@ebook.com
 Password: admin123
@@ -335,6 +368,7 @@ Permissions: Full access (manage books, users, transactions)
 ```
 
 ### Member (Test account)
+
 ```
 Email: test@test.com
 Password: test123
@@ -343,20 +377,23 @@ Permissions: Browse, borrow, view own transactions
 ```
 
 ### Registrasi Baru
-Bebas register member baru di: http://localhost:8080/register.html
+
+Bebas register member baru di: <http://localhost:8080/register.html>
 
 ---
 
 ## 📝 CARA MENJALANKAN
 
 ### Start Server
+
 ```bash
 cd C:/Users/Administrator/Workspace/uts-web-ebook/public
 php -S localhost:8080
 ```
 
 ### Akses Aplikasi
-1. Buka browser: http://localhost:8080/login.html
+
+1. Buka browser: <http://localhost:8080/login.html>
 2. Login dengan admin atau register member baru
 3. Browse katalog di dashboard
 4. Pinjam buku (member)
@@ -370,6 +407,7 @@ php -S localhost:8080
 **TIDAK ADA** ✅
 
 Semua fitur berjalan sempurna:
+
 - ✅ Backend API: All endpoints working
 - ✅ Frontend: All pages rendering
 - ✅ Database: JSON storage operational
@@ -383,17 +421,20 @@ Semua fitur berjalan sempurna:
 ## 📦 DELIVERABLES
 
 ### Code
+
 - ✅ 19 source files
 - ✅ Clean architecture (MVC-like)
 - ✅ Modular & maintainable
 - ✅ Commented code
 
 ### Documentation
+
 - ✅ README.md (user guide)
 - ✅ LAPORAN.md (implementation details)
 - ✅ LAPORAN_AKHIR.md (final report)
 
 ### Testing
+
 - ✅ API tested (curl)
 - ✅ Frontend tested (browser)
 - ✅ OOP verified (inheritance, polymorphism working)
@@ -406,24 +447,28 @@ Semua fitur berjalan sempurna:
 Sistem Perpustakaan E-Book berhasil dibangun sepenuhnya dengan:
 
 **Backend**:
+
 - PHP 8.x OOP murni (no framework)
 - Encapsulation, Inheritance, Polymorphism, Namespace ✅
 - Clean architecture dengan separation of concerns
 - JSON storage untuk persistence
 
 **Frontend**:
+
 - HTML5 semantic
 - CSS3 responsive (mobile-first)
 - Vanilla JavaScript (no library)
 - Real-time validation & AJAX
 
 **Fitur**:
+
 - Authentication & authorization
 - Book catalog management
 - Transaction system dengan denda otomatis
 - Role-based access control
 
 **Kualitas**:
+
 - ✅ No errors during execution
 - ✅ Clean & organized structure
 - ✅ Modular code
@@ -434,5 +479,5 @@ Sistem Perpustakaan E-Book berhasil dibangun sepenuhnya dengan:
 ---
 
 **Lokasi Project**: `C:/Users/Administrator/Workspace/uts-web-ebook`  
-**Server**: http://localhost:8080  
+**Server**: <http://localhost:8080>  
 **Build Date**: 11 November 2026

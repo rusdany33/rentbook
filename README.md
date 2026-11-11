@@ -9,6 +9,7 @@ Prototipe aplikasi web interaktif yang mengintegrasikan front-end (HTML, CSS, JS
 ## 🎯 Fitur Utama
 
 ### Member (Pengguna Biasa)
+
 - ✅ Registrasi dan Login
 - ✅ Browse katalog e-book dengan search & filter kategori
 - ✅ Pinjam buku (maksimal 3 buku)
@@ -17,6 +18,7 @@ Prototipe aplikasi web interaktif yang mengintegrasikan front-end (HTML, CSS, JS
 - ✅ Sistem denda keterlambatan otomatis
 
 ### Admin
+
 - ✅ Semua fitur member
 - ✅ Tambah, edit, hapus buku
 - ✅ Lihat semua transaksi pengguna
@@ -60,8 +62,10 @@ uts-web-ebook/
 ## 💻 Penerapan PHP OOP Modern
 
 ### 1. **Encapsulation** (30 poin)
+
 - Private/protected properties dengan getter/setter
 - Contoh: `User.php`, `EBook.php`, `Transaction.php`
+
 ```php
 private string $email;
 protected string $password;
@@ -72,8 +76,10 @@ public function getEmail(): string {
 ```
 
 ### 2. **Inheritance** (40 poin)
+
 - Abstract class `User` sebagai base class
 - `Admin` dan `Member` extends `User`
+
 ```php
 abstract class User {
     abstract public function getPermissions(): array;
@@ -85,8 +91,10 @@ class Admin extends User {
 ```
 
 ### 3. **Polymorphism** (40 poin)
+
 - Method overriding: `getPermissions()` berbeda di Admin vs Member
 - Factory pattern: `User::fromArray()`
+
 ```php
 // Admin permissions
 return ['borrow_book', 'add_book', 'manage_users'];
@@ -96,6 +104,7 @@ return ['borrow_book', 'view_catalog'];
 ```
 
 ### 4. **Namespace** (40 poin)
+
 ```php
 namespace App\Models;
 namespace App\Controllers;
@@ -107,6 +116,7 @@ use App\Controllers\UserController;
 ## 🎨 Front-End
 
 ### HTML/CSS
+
 - ✅ Semantic HTML5 elements
 - ✅ Responsive layout (mobile-friendly)
 - ✅ CSS Grid & Flexbox
@@ -115,6 +125,7 @@ use App\Controllers\UserController;
 - ✅ Custom CSS variables
 
 ### JavaScript
+
 - ✅ Client-side validation (real-time)
 - ✅ Async/await fetch API
 - ✅ DOM manipulation
@@ -124,29 +135,34 @@ use App\Controllers\UserController;
 ## 🚀 Cara Menjalankan
 
 ### Requirement
+
 - PHP 8.0 atau lebih tinggi
 - Web browser modern
 
 ### Langkah Instalasi
 
 1. **Clone/Download project**
+
 ```bash
 git clone : https://github.com/rusdany33/rentbook.git
 ```
 
-2. **Jalankan PHP Built-in Server**
+1. **Jalankan PHP Built-in Server**
+
 ```bash
 cd public
 php -S localhost:8080
 ```
 
-3. **Akses aplikasi**
-- Browser: http://localhost:8080/login.html
+1. **Akses aplikasi**
+
+- Browser: <http://localhost:8080/login.html>
 - Kredensial admin default:
   - Email: `admin@ebook.com`
   - Password: `admin123`
 
-4. **Register member baru** (opsional)
+1. **Register member baru** (opsional)
+
 - Klik "Daftar di sini" di halaman login
 - Isi form registrasi
 
@@ -161,6 +177,7 @@ php -S localhost:8080
 ## 🧪 Testing yang Dilakukan
 
 ### Backend API
+
 ```bash
 # Check authentication
 curl http://localhost:8080/index.php?action=check_auth
@@ -181,6 +198,7 @@ curl -X POST http://localhost:8080/index.php \
 ```
 
 ### Hasil Testing
+
 ✅ Authentication: Berhasil  
 ✅ Book catalog: 5 sample books loaded  
 ✅ Categories: 3 kategori  
@@ -190,10 +208,10 @@ curl -X POST http://localhost:8080/index.php \
 ## 📊 Database (JSON Storage)
 
 Data disimpan dalam format JSON:
+
 - `users.json`: User accounts (password di-hash dengan bcrypt)
 - `ebooks.json`: Katalog buku
 - `transactions.json`: Riwayat peminjaman
-
 
 ## 🔒 Keamanan
 
